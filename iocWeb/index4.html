@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<title>城市智慧中心</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/AdminLTE.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css" />
+<!-- 自定义样式 -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/ui.fancytree.css">
+<script src="js/jQuery-2.1.4.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.custom.js" type="text/javascript"></script>
+<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/sample.js" type="text/javascript"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+<script src="js/app.min.js" type="text/javascript"></script>
+<script src="js/jquery.fancytree.js" type="text/javascript"></script>
+<script src="js/replacecommon.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+function replace(con){
+	 $(window.frames["mainContent"].document).find("#replace").children(".dialogbody").empty();
+	 $(window.frames["mainContent"].document).find("#replace").children(".dialogbody").append(con);
+}
+
+function getCharFromUtf8(str) {
+	var cstr = "";
+	var nOffset = 0;
+	if (str == "")
+		return "";
+	str = str.toLowerCase();
+	nOffset = str.indexOf("%e");
+	if (nOffset == -1)
+		return str;
+	while (nOffset != -1) {
+		cstr += str.substr(0, nOffset);
+		str = str.substr(nOffset, str.length - nOffset);
+		if (str == "" || str.length < 9)
+			return cstr;
+		cstr += utf8ToChar(str.substr(0, 9));
+		str = str.substr(9, str.length - 9);
+		nOffset = str.indexOf("%e");
+	}
+	return cstr + str;
+}
+//将编码转换成字符  
+function utf8ToChar(str) {
+	var iCode, iCode1, iCode2;
+	iCode = parseInt("0x" + str.substr(1, 2));
+	iCode1 = parseInt("0x" + str.substr(4, 2));
+	iCode2 = parseInt("0x" + str.substr(7, 2));
+	return String.fromCharCode(((iCode & 0x0F) << 12)
+			| ((iCode1 & 0x3F) << 6) | (iCode2 & 0x3F));
+}
+
+jQuery(function($) {
+	getLayoutData()
+	var r = window.location.search
+	var a = r.split("=");
+	var finalcode = getCharFromUtf8(a[1]);
+	$("#mainContent").attr("src","./createscenebylayout.html?LayoutName="+finalcode);
+	iFrameHeight();
+});
+
+</script>
+</head>
+<body class="bodyBox" scroll="no">
+	<div class="wrapper">
+		<header class="main-header">
+			<a href="index3.jsp" class="logo"></a>
+			<nav class="navbar navbar-static-top" role="navigation">
+				<div class="tools">
+					<ul class="ul01">
+						
+					</ul>
+				</div>
+				<div class="navbar-custom-menu search_box ">
+					<div class="search">
+						<span></span> <input type="text" id="name" maxlength="10" size="10"/>
+					</div>
+					<div class="button_s">
+					<a href="javascript:void(0)" onclick="serachResourceName()" style="color:white">搜索</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<aside class="main-sidebar" style="background: #20335D;">
+			<section class="sidebar">
+				<ul class="sidebar-menu" id="subnav">
+					<li class="treeview active"><a href="#"> <i
+							class="icon_i icon_i03"></i> <span>首页</span> <i
+							class="fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu" id="webDiv">
+							<!-- 子导航 -->
+							<li class="item"><a class="item" href="./createVisualizationPage.html" target="mainContent"
+								> <i class="fa-circle-o"></i>-&nbsp;&nbsp;首页
+							</a></li>
+							<li class="item"><a class="item" href="createTemplate2.jsp" target="mainContent" > <i
+									class="fa fa-circle-o"></i>-&nbsp;&nbsp;新建可视化
+							</a class="item"></li>
+							<li class="item"><a class="item" href="categoryAdd2.jsp" target="mainContent"" > <i
+									class="fa fa-circle-o"></i>-&nbsp;&nbsp;场景分类添加
+							</a class="item"></li>
+							<li class="item"><a class="item" href="categoryTypeAdd2.jsp" target="mainContent" > <i
+									class="fa fa-circle-o"></i>-&nbsp;&nbsp;资源分类添加
+							</a class="item"></li>
+							<li class="item"><a class="item" href="addResource2.jsp" target="mainContent" > <i
+									class="fa fa-circle-o"></i>-&nbsp;&nbsp;资源添加
+							</a class="item"></li>
+							<!-- /子导航 -->
+						</ul></li>
+					<li class="treeview"><a href="#"> <i class="icon_i"></i>
+							<span>布局</span> <i class="fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu" id="layoutlist">
+							
+						</ul>
+					</li>
+					<li class="treeview"><a href="#"> <i
+							class="icon_i icon_i01"></i> <span>智库场景</span> <i
+							class="fa-angle-left pull-right"></i>
+					</a>
+
+						<div id="tree" class="treeview-menu">
+							<ul id="level_1"></ul>
+						</div>
+					</li>
+					<li class="treeview"><a href="#"> <i
+							class="icon_i icon_i02"></i> <span>模板</span> <i
+							class="fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu">
+							<!-- 子导航 -->
+							<li class="item"><a class="item" href="editSceneTemplate.jsp" target="mainContent"> <i class="fa-circle-o"></i>-&nbsp;&nbsp;城管管控中心
+							</a></li>
+							<li class="item"><a class="item" href="editSceneTemplate.jsp" target="mainContent"> <i class="fa-circle-o"></i>-&nbsp;&nbsp;城市体征管控中心
+							</a></li>
+							<li class="item"><a class="item" href="editSceneTemplate.jsp" target="mainContent"> <i class="fa-circle-o"></i>-&nbsp;&nbsp;园区管控中心
+							</a></li>
+							<!-- /子导航 -->
+						</ul></li>
+					<li class="treeview"><a href="#"> <i
+							class="icon_i icon_i03"></i> <span>用户管理</span> <i
+							class="fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu" id="webDiv">
+							<!-- 子导航 -->
+							<li class="item"><a class="item" href="javascript:void(0)"
+								> <i class="fa-circle-o"></i>-&nbsp;&nbsp;用户添加
+							</a></li>
+							<li class="item"><a class="item" href="#" > <i
+									class="fa fa-circle-o"></i>-&nbsp;&nbsp;历史记录
+							</a class="item"></li>
+							<!-- /子导航 -->
+						</ul></li>
+					<li class="treeview"><a href="#"> <i
+							class="icon_i icon_i04"></i> <span>权限管理</span> <i
+							class="fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu" id="agentDiv">
+							<!-- 子导航 -->
+							<li class="item"><a class="item" href="javascript:void(0)"
+								> <i class="fa-circle-o"></i>-&nbsp;&nbsp;角色添加
+							</a></li>
+							<li class="item"><a class="item"> <i class="fa fa-circle-o"></i>-&nbsp;&nbsp;权限配置
+							</a></li>
+
+							<!-- /子导航 -->
+						</ul></li>
+						<li class="treeview"><a href="#"> <i
+							class="icon_i icon_i04"></i> <span>系统管理</span> <i
+							class="fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu" id="agentDiv">
+							<!-- 子导航 -->
+							<li class="item"><a class="item" href="javascript:void(0)"
+								> <i class="fa-circle-o"></i>-&nbsp;&nbsp;皮肤管理
+							</a></li>
+							<li class="item"><a class="item" href="javascript:void(0)"
+								> <i class="fa-circle-o"></i>-&nbsp;&nbsp;系统参数
+							</a></li>
+							<li class="item"><a class="item"> <i class="fa fa-circle-o"></i>-&nbsp;&nbsp;菜单管理
+							</a></li>
+							<li class="item"><a class="item"> <i class="fa fa-circle-o"></i>-&nbsp;&nbsp;数据字典
+							</a></li>
+							<li class="item"><a class="item"> <i class="fa fa-circle-o"></i>-&nbsp;&nbsp;统计报表
+							</a></li>
+							<!-- /子导航 -->
+						</ul></li>
+					
+				</ul>
+			</section>
+		</aside>
+		<div class="content-wrapper">
+			<iframe id="mainContent" name="mainContent" width="100%" height="100%"  style="border: none;" scrolling="yes" marginheight="0" marginwidth="0" ></iframe>
+		</div>
+	</div>
+	<footer class="main-footer1">
+		<div>Copyright © 2002-2017 isoftstone. All rights reserved.</div>
+	</footer>
+
+	<script>
+		(function($) {
+			$(window).load(function() {
+				$(".main-sidebar").mCustomScrollbar({
+					axis : "y",
+					theme : "dark-3"
+				});
+			});
+		})(jQuery);
+
+		//设置top menu的显示
+		setTopMenu();
+		
+		//alert(document.documentElement.clientHeight);
+		function setBrowserHeight(){
+			var clientHeight = document.documentElement.clientHeight-1;
+			var footerHeight = $(".main-footer1").css("height");
+			var wrapperHeight = clientHeight - parseInt(footerHeight);
+			//alert(clientHeight + " " + footerHeight + " "+wrapperHeight);
+			$(".wrapper").css("height", wrapperHeight);
+			//$(".wrapper").css("height", clientHeight);
+			//$("body").css("height", clientHeight);
+			//$(".main-footer1").css("top", clientHeight);
+		}
+		
+		//setBrowserHeight();
+		
+		function iFrameHeight() {   
+			var iframe = document.getElementById("mainContent");  
+			try{  
+			    var bHeight = iframe.contentWindow.document.body.scrollHeight;  
+			    var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;  
+			    //alert(bHeight+" "+dHeight + " -1");
+			    //var height = Math.max(bHeight, dHeight);  
+			    //iframe.height = height;  
+			    bHeight = bHeight<800? 800:bHeight+30;
+			    //alert(bHeight);
+			    iframe.height = bHeight;
+			}catch (ex){}  
+		} 
+		iFrameHeight();
+		
+		function loadMainContentUrl(url){
+			var iframe = document.getElementById("mainContent");
+			iframe.src = url;
+		}
+	</script>
+</body>
+</html>

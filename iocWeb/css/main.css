@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+.dialogcontainter{height:400px; width:400px; position:absolute; font-size:13px;} 
+.dialogtitle{height:26px; width:auto; background-image:url('http://files.jb51.net/file_images/200908/103444839_p.gif');} 
+.dialogtitleinfo{float:left;height:20px; margin-top:2px; margin-left:10px;line-height:20px; vertical-align:middle; color:#FFFFFF; font-weight:bold; } 
+.dialogtitleico{float:right; height:20px; width:21px; margin-top:2px; margin-right:5px;text-align:center; line-height:20px; vertical-align:middle; background-image:url('http://files.jb51.net/file_images/200908/103419495.p.gif');background-position:-21px 0px} 
+.dialogbody{ padding:10px; width:auto; background-color: #FFFFFF;} 
+.dialogbottom{ 
+bottom:1px; right:1px;cursor:nw-resize; 
+position:absolute; 
+background-image:url('http://files.jb51.net/file_images/200908/103419495.p.gif'); 
+background-position:-42px -10px; 
+width:10px; 
+height:10px; 
+font-size:0;} 
+</style><style type="text/css" bogus="1">.dialogcontainter{height:400px; width:400px; border:1px solid #14495f; position:absolute; font-size:13px;} 
+.dialogtitle{height:0px; width:auto; background-image:url('http://files.jb51.net/file_images/200908/103444839.p.gif');} 
+.dialogtitleinfo{float:left;height:px; margin-top:0px; margin-left:0px;line-height:0px; vertical-align:middle; color:#FFFFFF; font-weight:bold; } 
+.dialogtitleico{float:right; height:0px; width:0px; margin-top:0px; margin-right:0px;text-align:center; line-height:0px; vertical-align:middle;} 
+.dialogbody{ padding:0px; width:auto; background-color: #000000;} 
+.dialogbottom{ 
+
+position:absolute; 
+width:0px; 
+height:0px; 
+font-size:0;}

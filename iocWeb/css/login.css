@@ -1,0 +1,65 @@
+*{ margin:0; padding:0;}
+body{
+	font:14px/1.5 AppleGothic,Arial,'Microsoft Yahei','Simsun';
+	font-family:"Microsoft YaHei" !important;
+	line-height:160%;
+	color:#333;
+	background: url(../images/login3.jpg) no-repeat #141335;
+	background-size:cover;
+	width:100%; height:100%;
+	/* [disabled]height:100%; */
+}
+body,html,p,h1,h2,h3,h4,h5,h6,dl,dd,dt,ul,li,input{padding:0; margin:0; font:14px/1.5 AppleGothic,Arial,'Microsoft Yahei','Simsun'; font-family:"Microsoft YaHei" !important; }
+dl,dd,dt,ul,li{list-style:none; }
+a:link,a:visited,a:hover,a:active{text-decoration:none;}
+a{color:#333; text-decoration:none; }
+a:hover {color:#85c6ec; }
+
+.w1{width:10%}
+.w2{width:20%}
+.w3{width:30%}
+.w3_3{width:36%}
+
+.w4{width:40%}
+.w5{width:50%}
+.w6{width:60%}
+.w7{width:70%};
+.w8{width:80%}
+.w9{width:90%; margin:0 auto; }
+.w10{width:100%;}
+
+.f10{font-size:10px;}
+.f12{font-size:12px;}
+.f14{font-size:14px;}
+.f16{font-size:15px;}
+.f18{font-size:18px;}
+.f20{font-size:20px;}
+.f34{font-size:34px;}
+.f40{ font-size:40px;}
+.bold{ font-weight:bold;}
+
+
+
+
+
+
+
+
+
+
+
+#login_bac{ position:relative;}
+
+.lon_box{ width:326px; height:402px; background:#FFF; position:absolute; right:150px; top:120px; -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px; padding:20px 30px 50px 30px; }
+.lon_ul li{ margin-top:30px; position:relative;}
+.lon_ul li img{ position:absolute; left:3px; top:5px; font-size:18px; color:#d4d2d3;} */
+
+.lon_srk{ height:40px; line-height:40px; padding-left:32px;}
+.Refresh{ padding-top:15px; color:#06C;}
+.yzm { width:96px; height:35px; display:block; position:absolute; left:130px; top:-8px;}
+.yzm img { width:96px; height:35px;}
+
+
+.foot{ color:#FFF; text-align:center; position:fixed; bottom:10px; width:100%; color:#d6d6ed;}

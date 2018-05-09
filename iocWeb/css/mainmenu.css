@@ -1,0 +1,54 @@
+body {
+	background-image: url(../images/controlBackground.jpg);
+}
+
+.main-menu {
+	width: 100%;
+	height: 600px;
+	vertical-align: center;
+	text-align: center;
+}
+
+.main-top {
+	width: 100%;
+	height: 200px;
+	vertical-align: center;
+	text-align: left;
+}
+
+.main-top img {
+	width: 200px;
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+.title_div {
+	margin-top: -57px;
+	margin-left: 249px;
+}
+
+.title_div span {
+	font-size: 30px;
+	color: #076c91;
+	font-family: SimHei;
+}
+
+img {
+	width: 120px;
+}
+
+.button_div {
+	width: 50px;
+	display: inline-table;
+	padding: 50px;
+}
+
+.menu_div {
+	margin-top: 10px;
+}
+
+.menu_div span {
+	font-size: 24px;
+	color: #03118e;
+	font-family: SimHei;
+}

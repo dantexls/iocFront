@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>城市智慧中心</title>
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"  />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css"  />
+	<link rel="stylesheet" type="text/css" href="css/css.css" >
+	<link rel="stylesheet" type="text/css" href="gridly/stylesheets/jquery.gridly.css"  />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	<script src="js/common.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/echarts.min.js" ></script>
+<style type="text/css">
+.gridly {
+	position: relative;
+	width: 960px;
+}
+
+.brick.small {
+	width: 60px;
+	height: 60px;
+}
+
+.brick.large {
+	width: 140px;
+	height: 110px;
+}
+.row span{
+	margin-left: 30px;
+}
+</style>
+</head>
+<body>
+	<div class="wapr">
+		<!-- <div id="min_top">
+          <div class="logo">
+          	<a href="index.html" style="color: #FFF;font-size: 20px;font-family: SimHei;">
+          		<img src="images/logo5.png" width="96px" height="34px">&nbsp;&nbsp;&nbsp;城市治理智库运营管理中心</a>
+          </div>
+          <div class="col-sm-8"></div>
+          <div class="col-sm-2 top_sta">今日服务量3,987次！！！</div>
+          <div class="col-sm-3 font_wit text-right" style="position:relative;margin-top: -16px;">
+                <span style="position:absolute; left:60px; top:5px; z-index:4"><i class="fa fa-search"></i></span>
+               <input name="" type="text" class="top_box" value="搜索">查询
+          </div>
+  	</div> -->
+		<%@ include file="top.jsp"%>
+		<div class="mt15">
+			<div style="width: 1440px;">
+				<%@ include file="newleftPage.jsp"%>
+					<span style="float: left;width: 100px;">
+						<a href="categoryAdd.jsp"><img src="images/menu/0130.png"
+							width="50px" height="50px" style="margin-left: 15px;"></a><br> <span
+							style="position: relative; left: 0px;"> 场景分类添加 </span>
+					</span>
+					<span style="float: left;width: 100px;">
+						<a href="categoryTypeAdd.jsp"><img src="images/menu/0300.png"
+							width="50px" height="50px" style="margin-left: 15px;"></a><br> <span
+							style="position: relative; left: 0px;"> 资源分类添加 </span>
+					</span>
+					<span style="margin-left: 10px;">
+						<a href="addResource.jsp"><img src="images/menu/0320.png"
+							width="50px" height="50px"></a><br> <span
+							style="position: relative; left: 0px;"> 资源添加 </span>
+					</span>
+				</div>
+				<div class="row" style="width: 1198px;height:300px;margin-top: 20px;margin-left: 230px;">
+					<span class="col-xs-2">
+						<a href="createTemplate.jsp"><img src="images/menu/001.png"
+							width="203px" height="233px"></a><br>
+						<span style="position: relative; left: 45px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05d9687fa015d96a8c1120003"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05d9687fa015d96a96e5b0005"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05d9687fa015d96a9f4da0007"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05d9687fa015d96aafc26000b"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 45px;"></span>
+					</span>
+				</div>
+				<div class="row" style="width: 1198px;height:300px;margin-left: 230px;">
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05d9687fa015d96ab6288000d"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05da22ffe015da245d04a0000"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05da22ffe015da24f613e0002"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05da22ffe015da25042800004"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+					<span class="col-xs-2">
+						<a href="updateTemplate.jsp?scenesId=8a90e5a05da22ffe015da25190a30006"><img src="images/menu/002.png"
+							width="200px" height="232px"></a><br>
+						<span style="position: relative; left: 0px;"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="js/index.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+

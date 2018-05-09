@@ -1,0 +1,42 @@
+.dialogcontainter{height:400px; width:400px; border:1px solid #14495f; position:absolute; font-size:13px;} 
+.dialogtitle{height:26px; width:auto; background-image:url('../images/103444839_p.gif');} 
+.dialogtitleinfo{float:left;height:20px; margin-top:2px; margin-left:10px;line-height:20px; vertical-align:middle; color:#FFFFFF; font-weight:bold; } 
+.dialogtitleico{height:20px; width:21px; margin-top:2px; margin-right:5px;text-align:center; line-height:20px; vertical-align:middle; background-image:url('../images/103419495.p.gif');background-position:-21px 0px;position:absolute;z-index:10;display: none;} 
+.dialogbody{ padding:0px; width:auto; background-color: #FFFFFF;position:relative;} 
+.dialogbottom{ 
+bottom:1px; right:1px;cursor:nw-resize; 
+position:absolute; 
+background-image:url('../images/103419495.p.gif'); 
+background-position:-42px -10px; 
+width:10px; 
+height:10px; 
+font-size:0;
+z-index:9;
+display: none;} 
+</style><style type="text/css" bogus="1">.dialogcontainter{height:400px; width:400px; border:1px solid #14495f; position:absolute; font-size:13px;} 
+.dialogtitle{height:26px; width:auto; background-image:url('../images/103444839_p.gif');} 
+.dialogtitleinfo{float:left;height:20px; margin-top:2px; margin-left:10px;line-height:20px; vertical-align:middle; color:#FFFFFF; font-weight:bold; } 
+.dialogtitleico{float:right; height:20px; width:21px; margin-top:2px; margin-right:5px;text-align:center; line-height:20px; vertical-align:middle; background-image:url('../images/103419495.p.gif');background-position:-21px 0px;} 
+.dialogbody{padding:0px; width:auto; background-color: #FFFFFF;} 
+.dialogbottom{ 
+bottom:1px; right:1px;cursor:nw-resize; 
+position:absolute; 
+background-image:url('../images/103419495.p.gif'); 
+background-position:-42px -10px; 
+width:10px; 
+height:10px; 
+font-size:0;}
+.chuangkou{
+    position:absolute;
+    width:400px;
+    height:300px;
+    left:50%;
+    top:200px;
+    display:block;
+    z-index:99;
+}
+.mask{
+	width:100%;height:100%;background-color:#000;position:absolute;top:0;left:0;z-index:1;opacity:0.3;
+    /*兼容IE8及以下版本浏览器*/
+    filter: alpha(opacity=30);display: none;
+}
